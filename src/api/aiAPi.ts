@@ -1,15 +1,30 @@
 import axiosInstance from '../utils/axiosInstance'
 
-export const getEvaluation = (title: string, code: string, model='deepseek') => {
+export const getEvaluation = (
+  title: string,
+  code: string,
+  model = 'deepseek',
+  problemId: string,
+) => {
   try {
-    const res = axiosInstance.post('/evaluate', { title, code, model })
+    const res = axiosInstance.post('/evaluate', {
+      title,
+      code,
+      model,
+      problemId,
+    })
     return res
   } catch (error) {
     console.log(error)
   }
 }
 
-export const getAnswer = (title: string, content: string, lang: string, model='deepseek') => {
+export const getAnswer = (
+  title: string,
+  content: string,
+  lang: string,
+  model = 'deepseek',
+) => {
   try {
     const res = axiosInstance.post('/answer', { title, content, lang, model })
     return res
@@ -18,7 +33,11 @@ export const getAnswer = (title: string, content: string, lang: string, model='d
   }
 }
 
-export const getAnalyzation = (title: string, content: string, model='deepseek') => {
+export const getAnalyzation = (
+  title: string,
+  content: string,
+  model = 'deepseek',
+) => {
   try {
     const res = axiosInstance.post('/analyze', { title, content, model })
     return res

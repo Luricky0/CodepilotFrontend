@@ -77,7 +77,7 @@ const CodeEditor = ({ problem }: { problem: Problem }) => {
     if (!isAILoading) {
       setIsAILoading(true)
       setAIState('evaluate')
-      const res = await getEvaluation(problem.title, code, AIModel)
+      const res = await getEvaluation(problem.title, code, AIModel,problem._id)
       setEvaluation(res?.data?.message)
       setIsAILoading(false)
     }
